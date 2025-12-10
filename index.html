@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>System Architecture & Performance Consulting | $1 System Architect – Duru Kang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Senior system architect offering $1 consulting to solve your architecture and performance problems. 17+ years experience with global e-commerce, subscription systems, databases, and AI infrastructure. Get expert solutions for system design, performance optimization, and technical architecture." />
+  <meta name="keywords" content="system architect, system architecture, performance consulting, database optimization, infrastructure consulting, subscription system, e-commerce platform, AI infrastructure, system design, technical consulting" />
+  <meta name="author" content="Duru Kang" />
+  <link rel="canonical" href="https://your-domain.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="System Architecture & Performance Consulting | $1 System Architect" />
+  <meta property="og:description" content="Senior system architect offering $1 consulting to solve your architecture and performance problems. 17+ years experience with global systems." />
+  <meta property="og:url" content="https://your-domain.com/" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="System Architecture & Performance Consulting | $1 System Architect" />
+  <meta name="twitter:description" content="Senior system architect offering $1 consulting to solve your architecture and performance problems. 17+ years experience with global systems." />
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #aaaaaa;
+      --border: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--fg);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--fg);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    section {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 16px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 0 0 12px 18px;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid var(--fg);
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 32px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      color: var(--fg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">$1 SYSTEM ARCHITECT</div>
+      <nav>
+        <a href="#what">What I Do</a>
+        <a href="#trust">Trust</a>
+        <a href="#story">Story</a>
+        <a href="#communication">Communication</a>
+        <a href="#human">Human View</a>
+        <a href="#dollar">Model</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#cost">Cost Saving</a>
+        <a href="#start">Start</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section>
+      <div class="hero">
+        <div>
+          <h3>Intro</h3>
+          <h1>
+            I will solve your system problems for $1
+            <span class="pill">No risk, I can help</span>
+          </h1>
+          <p>
+            You're here because you have a problem. Maybe you need a website built, an app developed, 
+            a subscription system set up, or your existing system's performance fixed. Whatever your 
+            technical challenge, <strong>I can help you solve it, and there's no risk</strong> — start with just $1.
+          </p>
+          <p>
+            <strong>I've been doing this work seriously for almost 20 years.</strong> I am a senior 
+            system architect with extensive real-world experience. I can build websites and apps, 
+            create subscription systems, fix performance problems, design global payment systems, 
+            build large-scale email systems, and help you reduce infrastructure costs. 
+            <strong>With nearly two decades of experience, I can definitely help you.</strong>
+          </p>
+          <p class="muted">
+            <strong>I prefer to communicate via email. Share your situation — whether you need a 
+            new website, app development, a subscription site, global payment systems, large-scale 
+            email infrastructure, performance optimization, or help reducing costs — and I'll provide 
+            you with concrete solutions I can deliver. I can actually reduce your infrastructure costs 
+            while maintaining or improving performance.</strong>
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#start" class="btn btn-primary">Start for $1</a>
+          <a href="mailto:enfn2001@gmail.com" class="btn btn-secondary">
+            Email: enfn2001@gmail.com
+          </a>
+          <a href="https://github.com/happydeveloper" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section id="what">
+      <h3>Scope</h3>
+      <h2>What I Do</h2>
+      <p>
+        I help you design, build, or repair systems that must not fail. Even very small
+        issues can become critical later — I focus on fixing the foundations and
+        making them observable and measurable.
+      </p>
+      <p>
+        <strong>I can solve app performance problems, build global payment systems, create 
+        large-scale email infrastructure, and actually reduce your costs</strong> — all based 
+        on almost 20 years of serious, real-world experience.
+      </p>
+      <p>
+        <strong>I approach problems from multiple angles and different levels of abstraction.</strong> 
+        I can view your system from various perspectives — code level, architecture level, business 
+        level, operational level — and find the best solutions. Good problems require good solutions, 
+        and I bring multiple viewpoints to ensure we solve the right problem in the right way.
+      </p>
+      <ul>
+        <li><strong>Apps & Performance:</strong> Fix app performance issues, optimize slow systems, resolve bottlenecks</li>
+        <li><strong>Global Payment Systems:</strong> Build and integrate global payment flows for 200+ countries</li>
+        <li><strong>Large-Scale Email Systems:</strong> Design and build high-volume email & notification infrastructure</li>
+        <li><strong>Subscription Platforms:</strong> Complete subscription systems (Paddle, WooCommerce, PayPal, various PGs)</li>
+        <li><strong>Cost Reduction:</strong> Reduce infrastructure costs while maintaining or improving performance</li>
+        <li>High-traffic global websites & APIs</li>
+        <li>AI-powered tools and on-device AI proof-of-concepts</li>
+        <li>Public-facing services and internal business systems</li>
+        <li>Database high availability, replication & performance tuning</li>
+        <li>Analytics, event definition, and funnel design & analysis (GA4, custom)</li>
+        <li>Public sector systems: museums, cultural institutions, and government infrastructure</li>
+        <li>High-performance AI infrastructure on enterprise GPUs (H100 and similar)</li>
+      </ul>
+    </section>
+
+    <!-- WHY TRUST ME -->
+    <section id="trust">
+      <div class="two-col">
+        <div>
+          <h3>Track Record</h3>
+          <h2>Why You Can Trust Me</h2>
+          <p>
+            You don’t need another generic agency. You need someone who has already
+            built, broken, and fixed real systems at scale — and lived with them in production.
+          </p>
+          <ul>
+            <li>
+              Built and operated a very large WordPress + WooCommerce subscription
+              platform, serving over <strong>2,000,000 registered users</strong>.
+            </li>
+            <li>
+              Kept the platform running in production for <strong>5+ consecutive years</strong>,
+              solving real issues: performance bottlenecks, traffic spikes, payment failures,
+              data consistency problems, server overload, and database locking.
+            </li>
+            <li>
+              Built a true global e-commerce platform selling to customers in
+              <strong>200+ countries</strong>. This was not just a website with global
+              payment options — it was a complete system designed from the ground up
+              for genuine worldwide operation.
+            </li>
+            <li>
+              Designed and operated global payment flows, selling digital services to
+              users in <strong>200+ countries</strong>.
+            </li>
+            <li>
+              Built and operated a comprehensive subscription system for
+              <strong>7 consecutive years</strong>, handling recurring payments,
+              billing cycles, and subscription lifecycles. For a non-profit organization,
+              I also structured and managed their revenue-generating projects.
+            </li>
+            <li>
+              Created and maintained multiple production-level apps, including AI-based tools.
+            </li>
+            <li>
+              Currently pursuing <strong>AI-related patents</strong> based on my work
+              with high-performance AI infrastructure and on-device AI systems.
+            </li>
+            <li>
+              Designed and implemented database encryption and web application server solutions
+              used in real production environments.
+            </li>
+            <li>
+              Worked on critical systems requiring network programming, socket monitoring,
+              and driver-level reliability.
+            </li>
+            <li>
+              Led or helped set up multiple engineering teams, from zero to a functioning
+              development organization.
+            </li>
+            <li>
+              Designed and implemented the exhibition management system for the
+              <strong>National Museum of Korea</strong>, one of the world's top 5 most-visited museums.
+              I architected the complete system: database infrastructure, server infrastructure,
+              and applications. This project has been a source of deep cultural inspiration for me
+              and has impacted many people. The system is updated monthly and will continue
+              through next year.
+            </li>
+            <li>
+              Implemented database triple replication and infrastructure software for the
+              <strong>National Assembly of Korea</strong>, and installed AI-based infrastructure
+              software running on high-performance H100 GPUs. These are the kinds of systems where
+              responsible users with deep expertise can also contribute to development.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Core Technical Strength</h3>
+          <h2>General Programming Languages & Databases Feel Like Home</h2>
+          <p>
+            <strong>General programming languages (C#, Java, C, Swift) and database systems are where I feel at home.</strong>
+            This is not just a skill set for me — it is my comfort zone.
+          </p>
+          <p>I am deeply experienced with:</p>
+          <ul>
+            <li>Server-side systems and backend services in C#, Java, C, Swift</li>
+            <li>High-performance database design and indexing</li>
+            <li>Complex data pipelines and transaction-heavy business logic</li>
+            <li>Long-running, mission-critical services</li>
+          </ul>
+          <p>
+            The kinds of database problems that many teams struggle with — slow queries,
+            deadlocks, replication issues, data inconsistency, scaling bottlenecks —
+            are problems I have already solved many times in production.
+          </p>
+          <p>
+            When I work with general programming languages and databases, it feels like returning to my hometown:
+            familiar, stable, and reliable. That is the level of confidence I bring
+            into your system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story">
+      <h3>Story</h3>
+      <h2>How I Became This Kind of Engineer</h2>
+
+      <div class="two-col">
+        <div>
+          <h3>Path</h3>
+
+          <p><strong>Military accountant & early automation</strong><br>
+            I started my career as an accounting clerk in the military. I was selected
+            because I was good at fixing processes. I automated and optimized workflows
+            with Excel and simple programming — it was my first taste of improving systems.
+          </p>
+
+          <p><strong>Websites and databases from age 20</strong><br>
+            In my early twenties, I built websites for small businesses and managed
+            databases. A professor recommended me to work at a university-affiliated
+            education center, where I took care of their site and database throughout
+            my college years.
+          </p>
+
+          <p><strong>E-commerce and payment gateways</strong><br>
+            I worked at a large PC distribution and online sales company during the
+            early days of the e-commerce boom, selling laptops and components online.
+            There I learned how payment gateways, logistics, and computer distribution
+            actually work. Since then I’ve often said: <em>“Life is timing.”</em>
+          </p>
+
+          <p><strong>Developer communities & content</strong><br>
+            I was active as a student developer in communities supported by large
+            tech-related organizations. I helped host developer meetups, created
+            screencast-style technical content, and contributed small pieces to
+            community projects. I learned about version control, release processes,
+            and how to explain technology to other people.
+          </p>
+
+          <p><strong>Hands-on troubleshooting</strong><br>
+            I worked part-time in a technical troubleshooting department, focusing
+            on embedded devices and small hardware systems. There I learned how to
+            investigate and solve technical issues calmly, under time pressure, and
+            with incomplete information.
+          </p>
+
+          <p><strong>Critical systems in finance</strong><br>
+            I joined a company that provided components for high-importance financial
+            systems, working on deployment modules and tools. I learned network
+            programming, socket monitoring, and low-level reliability concerns that
+            arise in environments where downtime is not acceptable.
+          </p>
+
+          <p><strong>Research & product development</strong><br>
+            For about seven years, I worked as a researcher/engineer at an IT solutions
+            company, building database encryption solutions and web application server
+            related products. I visited many client sites, listened to their needs,
+            and implemented real solutions. I was given autonomy to manage my own time
+            and to dive deeply into topics I loved.
+          </p>
+
+          <p><strong>Non-profit education & open knowledge</strong><br>
+            I co-founded a non-profit education project with friends from the developer
+            community. Our goal was to reduce information gaps and promote an
+            open-knowledge culture. We collaborated with various partners, ran online
+            education programs, and experimented with open-source-style learning.
+            I handled development, infrastructure, and also accounting.
+          </p>
+
+          <p><strong>IT in a multi-brand environment</strong><br>
+            Later, I joined the IT department of a company managing many consumer brands.
+            I handled databases and related programs across more than 20 brand sites
+            and worked with various external vendors. I learned how demanding real
+            business environments can be — and how easily a client can become difficult
+            if they forget what it feels like to be on the other side.
+          </p>
+
+          <p><strong>Solo consulting & teaching</strong><br>
+            I ran my own small business as an independent consultant, working on
+            database design, encryption, performance tuning, and server optimization
+            for companies and institutions in different fields (finance, education,
+            manufacturing, simulation, environment, and more). I also delivered
+            dozens of technical lectures and mentored startup teams in training programs.
+          </p>
+
+          <p><strong>Team building & current role</strong><br>
+            I helped set up development teams for startups and training companies,
+            building the initial team structure and then stepping away once things
+            were stable. In recent years, I’ve been leading and building an engineering
+            team for a language-learning platform that teaches Korean to the world.
+            The work is not perfect, but it is meaningful — and that matters to me.
+          </p>
+        </div>
+
+        <div>
+          <h3>Who I Am</h3>
+
+          <p><strong>What I can give</strong></p>
+          <ul>
+            <li>Deep understanding of databases and application servers</li>
+            <li>Strong SQL and query design skills</li>
+            <li>Experience from low-level systems to web and mobile</li>
+            <li>Many years of troubleshooting strange, hard-to-reproduce problems</li>
+            <li>Ability to propose multiple practical options when something breaks</li>
+          </ul>
+
+          <p><strong>How I work with people</strong></p>
+          <ul>
+            <li>
+              I don’t always speak in a polished way, but I often become a center of
+              gravity for people, tasks, and projects.
+            </li>
+            <li>
+              I can work well with “unusual” people and teams — sometimes those are
+              the teams that build the most interesting things.
+            </li>
+            <li>
+              I listen carefully and think alone. If something feels fundamentally wrong,
+              I usually don’t do it — but if my behavior makes others uncomfortable,
+              I try to improve.
+            </li>
+          </ul>
+
+          <p><strong>Personality, honestly</strong></p>
+          <ul>
+            <li>From a distance, I may look normal. Up close, I can seem a bit strange.</li>
+            <li>I don’t rely on automatic trust, but I like to give people hope.</li>
+            <li>
+              I’m not easily shaken by other people’s opinions, but if I cause discomfort,
+              I work on changing that.
+            </li>
+            <li>I don’t always make the same choice in the same situation — I adapt.</li>
+            <li>
+              When I play, I look like a planner. When I work, I’m more like:
+              “If it’s possible, let’s try.”
+            </li>
+          </ul>
+
+          <p><strong>What I want to learn</strong></p>
+          <ul>
+            <li>
+              A “hundred hobbies”: farming, food distribution, swimming, tennis,
+              weightlifting, and more.
+            </li>
+            <li>
+              Soft skills: communication, leadership, teaching, and helping others grow.
+            </li>
+          </ul>
+
+          <p><strong>Random details that still matter</strong></p>
+          <ul>
+            <li>
+              I started as an accounting clerk and still care about numbers and structure.
+            </li>
+            <li>
+              I have handled both backend systems and real accounting for a non-profit.
+            </li>
+            <li>
+              I like seasonal fruit, good conversations, and projects that mean something
+              beyond money.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNICATION -->
+    <section id="communication">
+      <div class="two-col">
+        <div>
+          <h3>Communication</h3>
+          <h2>Language Is Not the Real Barrier</h2>
+          <p>
+            I am not a native English speaker. But I can understand most English used
+            in real meetings with US and UK teams, especially in technical and product
+            discussions.
+          </p>
+          <p>
+            I use translation tools and AI assistants to refine my writing, check nuance,
+            and make sure we are aligned. This makes written communication clear and
+            reliable, even across time zones.
+          </p>
+        </div>
+        <div>
+          <h3>International Work</h3>
+          <h2>Experience Across Regions</h2>
+          <p>
+            I have worked with teams and companies in different regions, including
+            East Asia, South Asia, Europe, and North America.
+          </p>
+          <p>
+            In my experience, language is rarely the real problem. The real questions are:
+          </p>
+          <ul>
+            <li>Do we share the same goals?</li>
+            <li>Do we think clearly about trade-offs?</li>
+            <li>Do we care enough to fix the hard parts?</li>
+          </ul>
+          <p>
+            I believe that with clear thinking, honest communication, and the right tools,
+            we can reach our goals together. That is why I feel confident working with
+            clients from any country.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HUMAN VS AI -->
+    <section id="human">
+      <div class="two-col">
+        <div>
+          <h3>AI Era</h3>
+          <h2>AI Can Write Code. It Cannot See the Whole System.</h2>
+          <p>
+            Today, AI can generate code, fix syntax errors, and even suggest
+            architectures. I actively use AI tools as part of my workflow.
+          </p>
+          <p>But real systems rarely fail because a piece of code is missing. They fail because of:</p>
+          <ul>
+            <li>Wrong assumptions about users or traffic</li>
+            <li>Hidden operational constraints and edge cases</li>
+            <li>Business logic conflicts between teams</li>
+            <li>Data that behaves differently in the real world</li>
+            <li>Human decisions made under pressure</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Human Judgment</h3>
+          <h2>Systems Need Multiple Perspectives at Different Abstraction Levels</h2>
+          <p>
+            What I bring is not only implementation. I bring a
+            <strong>multi-angle, multi-level perspective</strong> that views problems from various 
+            abstraction levels and different viewpoints:
+          </p>
+          <ul>
+            <li><strong>Multiple abstraction levels:</strong> From code details to high-level architecture</li>
+            <li><strong>Engineering perspective:</strong> Technical implementation and performance</li>
+            <li><strong>Operations perspective:</strong> How systems run in production</li>
+            <li><strong>Business perspective:</strong> Costs, value, and business impact</li>
+            <li><strong>Risk perspective:</strong> Failure scenarios and edge cases</li>
+            <li><strong>Long-term perspective:</strong> Maintenance, evolution, and sustainability</li>
+          </ul>
+          <p>
+            <strong>Good problems require viewing them from multiple angles and different levels of abstraction.</strong> 
+            I can analyze your system from the ground up — from individual code paths to overall system architecture 
+            — and find solutions that work at all levels.
+          </p>
+          <p>
+            AI gives you speed. Human judgment with multiple perspectives determines whether your system
+            survives the long term.
+          </p>
+          <p>
+            I believe great systems are built where <strong>AI speed meets human responsibility and 
+            multi-dimensional thinking</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW $1 WORKS -->
+    <section id="dollar">
+      <div class="two-col">
+        <div>
+          <h3>Engagement</h3>
+          <h2>How the $1 Model Works</h2>
+          <p>
+            This $1 offer is not about being cheap. It is a deliberate way to remove
+            risk and build trust across borders.
+          </p>
+          <ol style="padding-left:18px;">
+            <li>
+              <strong>You pay $1 to start.</strong><br />
+              This confirms you are serious and opens a focused technical engagement.
+            </li>
+            <li>
+              <strong>You describe your situation.</strong><br />
+              Email me and tell me what you need — a website, subscription site, or help with existing problems.
+            </li>
+            <li>
+              <strong>I design or diagnose.</strong><br />
+              You receive a clear architecture or troubleshooting plan with concrete steps.
+            </li>
+            <li>
+              <strong>If you are satisfied, we continue.</strong><br />
+              We can then agree on a fair rate for implementation or ongoing consulting.
+            </li>
+            <li>
+              <strong>If you are not satisfied,</strong> you only spent $1.
+            </li>
+          </ol>
+          <p>
+            One dollar is enough to start a serious technical conversation.
+          </p>
+        </div>
+
+        <div>
+          <h3>Subscription</h3>
+          <h2>My First Global Subscription, With You</h2>
+          <p>
+            If I start my overseas subscription business, I want you to be one of the
+            first subscribers.
+          </p>
+          <p>
+            On this site, I will keep adding what I can really deliver — step by step:
+          </p>
+          <ul>
+            <li>New tools and utilities</li>
+            <li>Automation and internal systems</li>
+            <li>Performance and cost optimization examples</li>
+            <li>Architecture diagrams and case studies</li>
+            <li>AI experiments and proof-of-concepts</li>
+          </ul>
+          <p>
+            Not with promises, but with visible, measurable results. I want this page
+            to become a living proof of what I can actually do.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYTICS / FUNNEL -->
+    <section id="analytics">
+      <div class="two-col">
+        <div>
+          <h3>Measurement</h3>
+          <h2>Funnel & Event Analytics</h2>
+          <p>
+            Good systems are not only stable — they are measurable. I can help you
+            design how your product is measured so that marketing, product, and
+            business teams can see what is really happening.
+          </p>
+          <p>I work on:</p>
+          <ul>
+            <li>Funnel design for end-to-end user journeys</li>
+            <li>Event naming conventions and event hierarchies</li>
+            <li>Event parameter design (what to capture, and why)</li>
+            <li>Cross-domain / multi-site tracking strategy</li>
+          </ul>
+        </div>
+        <div>
+          <h3>From Events to Decisions</h3>
+          <h2>From Raw Events to Funnel Insights</h2>
+          <p>
+            I do not stop at “events are firing.” I help you turn events into
+            real funnel insights:
+          </p>
+          <ul>
+            <li>Funnel drop-off and step-by-step conversion analysis</li>
+            <li>Purchase and subscription funnels</li>
+            <li>Micro-conversions (CTA clicks, trials, upgrades)</li>
+            <li>Retention and cohort-based views (where relevant)</li>
+          </ul>
+          <p>
+            Whether you use GA4 or a custom dashboard, I can work with you to define
+            events and funnels so that your team can make decisions based on data,
+            not guesses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COST SAVINGS MODEL -->
+    <section id="cost">
+      <div class="two-col">
+        <div>
+          <h3>Efficiency</h3>
+          <h2>Server Cost Reduction Without Performance Loss</h2>
+          <p>
+            Many systems pay too much for infrastructure because of poor architecture,
+            missing caching, or unoptimized queries.
+          </p>
+          <p>I specialize in:</p>
+          <ul>
+            <li>Web server tuning (reverse proxies, caching, compression)</li>
+            <li>Database performance and query optimization</li>
+            <li>Caching and read/write separation strategies</li>
+            <li>Right-sizing and scaling without waste</li>
+          </ul>
+          <p>
+            I focus on <strong>cost reduction without performance loss</strong>.
+            If your system becomes cheaper but slower, that is not success.
+          </p>
+        </div>
+
+        <div>
+          <h3>Shared Benefit</h3>
+          <h2>Fair Cost-Saving & Monthly Consulting Model</h2>
+          <p><strong>The cost-saving agreement is simple and fair:</strong></p>
+          <ul>
+            <li>
+              If I reduce your server or infrastructure cost without degrading
+              performance, we share the savings (for example, 50/50).
+            </li>
+            <li>
+              You keep part of the savings; I receive part of the savings as a fee.
+            </li>
+            <li>
+              If there is no real saving, you don’t pay this fee.
+            </li>
+          </ul>
+          <p>
+            After optimization, I can stay as your long-term technical partner with
+            a monthly arrangement:
+          </p>
+          <ul>
+            <li>Ongoing consulting and architecture review</li>
+            <li>Monitoring and proactive adjustments</li>
+            <li>Security, stability, and scaling checks</li>
+          </ul>
+          <p class="muted">
+            The exact percentage and scope can be adjusted based on your system and
+            needs. The goal is to align incentives: you save money, and I help
+            keep it that way.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF & GITHUB -->
+    <section>
+      <h3>Proof</h3>
+      <h2>I Prove Everything With Real Work</h2>
+      <p>
+        I do not want you to trust me just because of nice words on a website.
+        I want you to trust me because of visible work.
+      </p>
+      <ul>
+        <li>Architecture diagrams and design documents</li>
+        <li>Benchmark results and before/after metrics</li>
+        <li>Production-grade code and proof-of-concepts</li>
+        <li>Real stories of issues found and fixed</li>
+      </ul>
+      <p>
+        I share selected work and experiments on GitHub so you can see how I think
+        and how I write code.
+      </p>
+      <p>
+        GitHub:
+        <a href="https://github.com/happydeveloper" target="_blank" rel="noopener noreferrer">
+          github.com/happydeveloper
+        </a>
+      </p>
+      <p>
+        What I claim here, I aim to prove with real commits and real improvements.
+      </p>
+    </section>
+
+    <!-- GET STARTED -->
+    <section id="start">
+      <h3>Start</h3>
+      <h2>Tell Me Your Situation — I Can Help</h2>
+      <p>
+        <strong>I prefer to communicate via email.</strong> Share your situation with me, and 
+        I'll tell you exactly what I can do to help.
+      </p>
+      <p>
+        <strong>I've been doing this work seriously for almost 20 years.</strong> I have extensive 
+        experience solving real problems in production. That's why I can confidently say: 
+        <strong>I can definitely help you.</strong>
+      </p>
+      <p>
+        <strong>Do you need a website or app built?</strong> I can build it. <strong>Do you need a 
+        subscription site?</strong> I can create it. <strong>Do you have app or performance problems?</strong> 
+        I can fix them. <strong>Do you need a global payment system or large-scale email infrastructure?</strong> 
+        I can build it. <strong>Do you want to reduce infrastructure costs while maintaining performance?</strong> 
+        I can actually do that for you.
+      </p>
+      <p>
+        The more specific you are about what you need, the better I can help you. With almost 20 years 
+        of serious experience, I've solved these problems many times. There's no risk — start with $1, 
+        and if I can help solve your problem, we can agree on fair terms for the work. If I can't help 
+        or you're not satisfied, you only spent one dollar.
+      </p>
+      <p>
+        <strong>Email me at <a href="mailto:enfn2001@gmail.com">enfn2001@gmail.com</a> and tell me:</strong>
+      </p>
+      <ul>
+        <li>What you're trying to build or fix</li>
+        <li>What problems you're facing</li>
+        <li>What you need help with</li>
+      </ul>
+      <p>
+        I'll respond and tell you what I can do for you. Simple and straightforward.
+      </p>
+
+      <div class="hero-actions" style="margin-top: 8px;">
+        <a href="mailto:enfn2001@gmail.com?subject=System Help Request" class="btn btn-primary">
+          Email Me Your Situation
+        </a>
+        <a href="mailto:enfn2001@gmail.com" class="btn btn-secondary">
+          enfn2001@gmail.com
+        </a>
+        <a href="https://github.com/happydeveloper" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </div>
+
+      <p style="margin-top: 18px;">
+        <strong>There's no risk.</strong> Start with $1. Tell me what you need, and I'll tell you 
+        what I can do. If I can help and you're satisfied, we continue. If not, you only spent one dollar.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      &copy; <span id="year"></span> Duru Kang · Built in black &amp; white · Designed for clarity, not hype.
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="tally-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 style="margin-top: 0;">Form Coming Soon</h2>
+      <p>
+        The request form is currently being prepared. Please use email to contact me for now.
+      </p>
+      <p>
+        <a href="mailto:enfn2001@gmail.com" class="btn btn-primary" style="margin-top: 16px;">
+          Send Email Instead
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Tally form modal
+    const tallyLinks = document.querySelectorAll(".tally-link");
+    const modal = document.getElementById("tally-modal");
+    const closeBtn = document.getElementById("modal-close");
+
+    tallyLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        modal.classList.add("active");
+      });
+    });
+
+    closeBtn.addEventListener("click", function() {
+      modal.classList.remove("active");
+    });
+
+    window.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
