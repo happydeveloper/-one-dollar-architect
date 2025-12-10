@@ -9,6 +9,7 @@ I help you design, build, or repair systems that must not fail. I approach probl
 ### Key Services
 
 - **Apps & Performance:** Fix app performance issues, optimize slow systems, resolve bottlenecks
+- **App Store Organization:** Set up App Store organization accounts, handle all administrative procedures and reviews, manage multiple certificates, and configure security settings
 - **Global Payment Systems:** Build and integrate global payment flows for 200+ countries
 - **Large-Scale Email Systems:** Design and build high-volume email & notification infrastructure
 - **Subscription Platforms:** Complete subscription systems (Paddle, WooCommerce, PayPal, various PGs)
